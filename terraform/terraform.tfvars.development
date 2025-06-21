@@ -1,4 +1,5 @@
 region = "us-east-1"
 environment = "development"
-project_name = "frontend-assets"
+bucket_name_prefix = "frontend-assets"
+suffix = "8864"
 

@@ -11,7 +11,7 @@ terraform {
 
 provider "aws" {
   region = var.region
-  default_tags = {
+  default_tags {
     tags = {
       Name        = "${var.bucket_name_prefix}-${var.environment}"
       Environment = var.environment
