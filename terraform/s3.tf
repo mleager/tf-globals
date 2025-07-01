@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "frontend_bucket" {
   bucket = "${var.bucket_name_prefix}-${var.environment}-${var.suffix}"
 
   tags = {
-    Name        = "${var.bucket_name_prefix}-${var.environment}"
+    Name        = "${var.bucket_name_prefix}-${var.environment}-${var.suffix}"
     Environment = var.environment
   }
 }

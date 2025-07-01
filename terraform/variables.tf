@@ -1,3 +1,9 @@
+variable "project_name" {
+  type        = string
+  default     = "tf-globals"
+  description = "Name of the Github Repo"
+}
+
 variable "environment" {
   type        = string
   default     = "development"

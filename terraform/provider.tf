@@ -13,7 +13,7 @@ provider "aws" {
   region = var.region
   default_tags {
     tags = {
-      Name        = "${var.bucket_name_prefix}-${var.environment}"
+      Name        = var.project_name
       Environment = var.environment
     }
   }
