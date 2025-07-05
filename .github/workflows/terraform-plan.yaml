@@ -6,16 +6,15 @@ on:
     #   - './terraform/**'
     #   - '.github/workflows/terraform-plan.yml'
 
-env:
-  CONFIG_DIRECTORY: ./terraform
-  TF_VERSION: 1.12.1
-  VAR_FILE: terraform.tfvars.development
-  AWS_REGION: us-east-1
-  S3_KEY: frontend-assets
-
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+      CONFIG_DIRECTORY: ./terraform
+      TF_VERSION: 1.12.1
+      VAR_FILE: terraform.tfvars.development
+      AWS_REGION: us-east-1
+      PROJECT_NAME: ${{ github.event.repository.name }}
     permissions:
       contents: read
       pull-requests: write
@@ -46,7 +45,7 @@ jobs:
       uses: mleager/tf-shared-actions/.github/actions/terraform-init@main
       with:
         bucket: ${{ secrets.STATE_BUCKET }}
-        key: ${{ env.S3_KEY }}/terraform.tfstate
+        key: ${{ env.PROJECT_NAME }}/terraform.tfstate
         region: ${{ env.AWS_REGION }}
 
     - name: Terraform Validate
