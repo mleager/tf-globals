@@ -13,7 +13,7 @@ jobs:
       TF_VERSION: 1.12.1
       VAR_FILE: terraform.tfvars.development
       AWS_REGION: us-east-1
-      PROJECT_NAME: frontend-assets
+      PROJECT_NAME: ${{ github.event.repository.name }}
     permissions:
       contents: write
     defaults:
